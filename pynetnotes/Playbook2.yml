@@ -1,0 +1,14 @@
+---
+- hosts: local
+  tasks:
+    - name: Generate configuration file
+      template: src=/home/kbyers/ANSIBLE/class3/router1.j2
+				  dest=/home/kbyers/ANSIBLE/CFGS/{{item.hostname}}.txt  
+	  
+	  with_items:
+	    - hostname: pynet-rtr1
+		- hostname: pynet-rtr2
+		- hostname: pynet-rtr3
+		- hostname: pynet-rtr4
+		- hostname: pynet-rtr5
+		- hostname: pynet-rtr6

@@ -1,0 +1,41 @@
+- name: Show run
+  tasks:
+    - name: run show version on remote devices
+  	  ios_command:
+	    commands: 
+	    - show version
+		
+		
+- name: New user "Ken"
+  hosts: raspberry
+  become: true
+  tasks:
+    - action: group
+      args:
+        name: developers
+        state: present
+    - action: user
+      args:
+        name: ken
+        shell: /bin/bash
+        comment: "Ken Test"
+        uid: 1040
+        generate_ssh_key: yes
+        ssh_key_bits: 2048
+        ssh_key_file: .ssh/id_rsa
+        group: developers
+
+		
+ansible-playbook package.yml --extra-vars "package=moon-buggy"
+
+- name: install package
+  hosts: raspberry
+  become: true
+  tasks:
+    - name: Installing "{{ item }}"
+	  action: "{{ ansible_pkg_mgr }}"
+	  args:
+	    name: {{ item }}
+	  with_items: "{{ package }}"
+		
+		

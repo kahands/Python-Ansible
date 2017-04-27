@@ -1,0 +1,8 @@
+Ansible
+Python base config management, orcastration.
+
+use case 
+
+network config templating
+
+configuration changes (part)

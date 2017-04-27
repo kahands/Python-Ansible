@@ -1,0 +1,21 @@
+sudo apt-get -y install python-pip python-dev libffi-dev libssl-dev python-virtualenv
+
+
+ansible -k -m authorized_key -a "user=ansible key='$(cat id_rsa.pub)'" raspberry
+
+export PATH=~/opt/bin:$PATH
+
+echo export PATH=$PATH:/home/ken/ansible/bin/ >> .bashrc
+
+ansible -m apt -b -a name=moon-buggy raspberry
+
+ansible-playbook release.yml --extra-vars "version=1.23.45 other_variable=foo"
+
+ansible-playbook package.yml --extra-vars "package=moon-buggy"
+
+
+ansible_distribution
+
+"ansible_nodename": "piModelB",
+"ansible_os_family": "Debian",
+"ansible_pkg_mgr": "apt",

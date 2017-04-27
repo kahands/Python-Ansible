@@ -1,0 +1,24 @@
+#python lists / dictionarys and classes.
+
+####lists####
+
+
+my_list = range(8)
+my_list.append('whatever')
+my_list.append('What do you want')
+my_list.append({})
+my_list[-1]
+my_list[-1]['ip_addr'] = '10.10.10.239'
+my_list[-1]['ip_addr'] = range(5)
+
+
+####dictionaries####
+
+my_list = {
+	'ip_addr': '10.10.10.239',
+	'host_name': 'rtr1',
+}
+
+####classes####
+
+class 

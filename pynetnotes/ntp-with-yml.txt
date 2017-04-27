@@ -1,0 +1,16 @@
+---
+ - ntp server 130.126.24.25
+ - ntp server 152.2.21.2
+
+import yaml
+
+with open("nontpconfig.yml") as f:
+	config_commands = yaml.load(f)
+
+with open("ntpconfig.yml") as f:
+	config_commands = yaml.load(f)
+
+output = pynet_rtr1.send_config_set(config_commands)
+
+output = pynet_rtr1.send_command("show run | inc ntp")
+print output

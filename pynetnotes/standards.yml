@@ -1,0 +1,35 @@
+---
+ntpconfig:
+    - ntp server 130.126.24.25
+    - ntp server 152.2.21.2
+
+snmpconfig:
+    - snmp-server group READONLY v3 priv read VIEWSTD access 98
+    - snmp-server view VIEWSTD iso included
+    - snmp-server community galileo RO 98
+    - snmp-server ifindex persist
+    - snmp-server location Freemont, CA
+    - snmp-server contact Kirk Byers
+
+dnsconfig:
+    - nameserver
+    - nameserver
+
+aaaconfig:
+    - aaa new-model
+    - aaa authentication password-prompt Fallback_Passwd
+    - aaa authentication login default group tacacs+ local
+
+tacacsconfig:
+    - tacacs-server host 10.1.2.3
+    - tacacs-server key goaway
+
+loggingconfig:
+    - no logging console
+    - logging server
+    - logging server
+    - logging buffered informational
+    - logging buffered 64000
+    - terminal no monitor
+    - logging host
+    - logging traps 6

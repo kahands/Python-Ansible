@@ -1,0 +1,11 @@
+---
+- option one
+- option two
+
+import yaml
+
+with open("some_file.yml", "w") as f:
+	f.write(yaml.dump(my_list, default_flow_style=False))
+
+with open("some_file.yml") as f:
+	new_list = yaml.load(f)

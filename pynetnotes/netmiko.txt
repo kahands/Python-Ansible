@@ -1,0 +1,44 @@
+netmiko
+
+python
+from netmiko import ConnectHandler
+from getpass import getpass
+password = getpass()
+88newclass
+
+pynet1 = {
+	'device_type': 'cisco_ios',
+	'ip': '184.105.247.70',
+	'username': 'pyclass',
+	'password': password,
+}
+pynet_rtr1 = ConnectHandler(**pynet1)
+
+
+dir(pynet_rtr1)
+
+pynet_rtr1
+
+pynet_rtr1.find_prompt()
+
+pynet_rtr1.config_mode()
+pynet_rtr1.exit_config_mode()
+
+output = pynet_rtr1.send_command("show ip int bri")
+print output
+
+output = pynet_rtr1.send_command("show run | inc logging")
+print output
+
+config_commands = ['logging buffered 19999']
+output = pynet_rtr1.send_config_set(config_commands)
+
+output = pynet_rtr1.send_command("show run | inc logging")
+print output
+
+output = pynet_rtr1.send_command("show run | inc ntp")
+print output
+
+#####################
+
+

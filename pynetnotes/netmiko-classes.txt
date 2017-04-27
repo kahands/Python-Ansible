@@ -1,0 +1,15 @@
+CLASS_MAPPER = {
+	'cisco_ios'		: CiscoIosSSH,
+	'cisco_xe'		: CiscoIosSSH,
+	'cisco_asa'		: CiscoAsaSSH,
+	'cisco_nxos'	: CiscoNxosSSH,
+	'cisco_xr'		: CiscoXrSSH,
+	'cisco_wls_ssh'	: CiscoWlcSSH,
+	'arista_eos'	: AristaSSH,
+	'hp_procurve'	: HPProcurveSSH,
+	'hp_comware'	: HPComwareSSH,
+	'huawei'		: HuaweiSSH,
+	'f5_ltm'		: F5LtmSSH,
+	'juniper'		: JuniperSSH,
+	'brocade_vdx'	: BrocadeVdxSSH,
+}

@@ -1,0 +1,19 @@
+
+my_list = range(8)
+my_list.append('whatever')
+my_list.append('What do you want')
+my_list.append({})
+my_list[-1]
+my_list[-1]['ip_addr'] = '10.10.10.239'
+my_list[-1]['ip_addr'] = range(5)
+
+
+import json
+
+json.dumps(my_list)
+
+with open("some_file.yml", "w") as f:
+	json.dump(my_list, f)
+
+with open("some_file.yml") as f:
+	new_list = json.load(f)
